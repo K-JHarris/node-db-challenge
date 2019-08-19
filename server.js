@@ -5,6 +5,14 @@ server.use(express.json());
 //use my middleware
 server.use(logger);
 //use my routes
+const projectsRoute = require('./routes/projectsRoutes');
+server.use('/projects', projectsRoute);
+
+const resourceRoute = require('./routes/resourceRoutes');
+server.use('/resources', resourceRoute)
+
+const tasksRoute = require('./routes/tasksRoute');
+server.use('/tasks', tasksRoute)
 
 //nice confirmation message that this is actually running
 server.get("/", (req, res) => {
